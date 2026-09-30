@@ -1,0 +1,177 @@
+/* ═══════════════════════════════════════════════
+ * Marquezy — block editor styles
+ * Live preview (front-end markup and styles) + rows as labelled panels while selected.
+ * ═══════════════════════════════════════════════ */
+
+.marquezy-block.is-editing .marquezy-rows {
+	gap: 8px;
+}
+
+.marquezy-row.is-editing {
+	display: block;
+	overflow: visible;
+	padding: 8px 14px 10px;
+	border-radius: 2px;
+	white-space: normal;
+}
+
+.marquezy-row__label {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	margin: 0 0 4px;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.04em;
+	line-height: 1.4;
+	text-transform: uppercase;
+	opacity: 0.65;
+	user-select: none;
+}
+.marquezy-row__dir {
+	font-weight: 400;
+	text-transform: none;
+}
+
+/* Phrases: numbered, one per line */
+.marquezy-row__phrases {
+	counter-reset: marquezy-phrase;
+}
+.marquezy-row__phrases > p,
+.marquezy-row__phrases > .wp-block-paragraph {
+	position: relative;
+	margin: 0 !important;
+	padding: 5px 0 5px 26px;
+	border-bottom: 1px dashed color-mix(in srgb, currentColor 25%, transparent);
+	counter-increment: marquezy-phrase;
+}
+.marquezy-row__phrases > p:last-of-type {
+	border-bottom: 0;
+}
+.marquezy-row__phrases > p::before {
+	content: counter(marquezy-phrase);
+	position: absolute;
+	top: 5px;
+	left: 0;
+	min-width: 18px;
+	font-size: 0.75em;
+	line-height: 1.9;
+	opacity: 0.5;
+	pointer-events: none;
+}
+
+.marquezy-inspector-note {
+	margin: 12px 0 0;
+	color: #757575;
+	font-size: 12px;
+}
+
+.marquezy-global-preview .components-notice {
+	margin: 0;
+}
+
+/* Live preview above the row editors */
+.marquezy-block-edit > .marquezy-block.is-editing {
+	margin-top: 12px;
+}
+.marquezy-block-edit > [hidden] {
+	display: none !important;
+}
+.marquezy-live-preview.is-empty {
+	padding: 16px;
+	border: 1px dashed currentColor;
+	border-radius: 2px;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+	font-size: 13px;
+	text-align: center;
+	opacity: 0.6;
+}
+
+/* Inspector: segmented direction control (same look as the settings page) */
+.marquezy-seg {
+	display: flex;
+	padding: 2px;
+	background: #f0f0f1;
+	border-radius: 4px;
+}
+.marquezy-seg__btn {
+	display: inline-flex;
+	flex: 1;
+	align-items: center;
+	justify-content: center;
+	gap: 4px;
+	min-height: 32px;
+	padding: 0 8px;
+	border: 0;
+	border-radius: 3px;
+	background: transparent;
+	color: #50575e;
+	font-size: 13px;
+	cursor: pointer;
+}
+.marquezy-seg__btn.is-active {
+	background: #fff;
+	color: #1e1e1e;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+	font-weight: 500;
+}
+.marquezy-seg__btn:focus-visible {
+	outline: 2px solid var(--wp-admin-theme-color, #3858e9);
+	outline-offset: -2px;
+}
+.marquezy-seg__btn .dashicon {
+	width: 16px;
+	height: 16px;
+	font-size: 16px;
+}
+
+.marquezy-control-label {
+	margin-bottom: 8px;
+	font-size: 11px;
+	font-weight: 500;
+	line-height: 1.4;
+	text-transform: uppercase;
+}
+.marquezy-seg-control + .marquezy-seg-control,
+.marquezy-seg-control + .components-base-control,
+.components-base-control + .marquezy-seg-control {
+	margin-top: 16px;
+}
+.marquezy-seg-control + .components-base-control,
+.marquezy-seg-control + p {
+	margin-top: 16px;
+}
+.marquezy-sep-picker {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	gap: 4px;
+}
+.marquezy-sep-option.components-button {
+	justify-content: center;
+	width: 100%;
+	height: 34px;
+	padding: 0;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+	color: #1e1e1e;
+}
+.marquezy-sep-option.components-button.is-active {
+	border-color: var(--wp-admin-theme-color, #3858e9);
+	box-shadow: 0 0 0 1px var(--wp-admin-theme-color, #3858e9);
+	color: var(--wp-admin-theme-color, #3858e9);
+}
+.marquezy-sep-icon {
+	display: inline-flex;
+	font-size: 15px;
+	line-height: 1;
+}
+.marquezy-sep-none {
+	opacity: 0.45;
+	font-size: 16px;
+}
+
+/* Preview animation switched off by the user (admin previews only) */
+.marquezy-preview-paused .marquezy-track {
+	animation-play-state: paused !important;
+}

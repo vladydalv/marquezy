@@ -1,0 +1,74 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "marquezy/marquee",
+	"title": "Marquee",
+	"category": "design",
+	"description": "Scrolling text: the global announcement bar or your own 1–3 rows — straight, tilted or crossed.",
+	"keywords": [
+		"ticker",
+		"scrolling text",
+		"announcement",
+		"running line"
+	],
+	"textdomain": "marquezy",
+	"attributes": {
+		"mode": {
+			"type": "string",
+			"enum": [
+				"custom",
+				"global"
+			],
+			"default": "custom"
+		},
+		"layout": {
+			"type": "string",
+			"enum": [
+				"straight",
+				"tilt",
+				"cross"
+			],
+			"default": "straight"
+		},
+		"angle": {
+			"type": "number",
+			"default": 4
+		},
+		"crossPoint": {
+			"type": "number",
+			"default": 0
+		},
+		"speed": {
+			"type": "number",
+			"default": 60
+		},
+		"rowGap": {
+			"type": "number",
+			"default": 0
+		},
+		"pauseOnHover": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"providesContext": {
+		"marquezy/pauseOnHover": "pauseOnHover"
+	},
+	"supports": {
+		"html": false,
+		"align": [
+			"wide",
+			"full"
+		],
+		"spacing": {
+			"margin": [
+				"top",
+				"bottom"
+			]
+		}
+	},
+	"editorScript": "marquezy-editor",
+	"editorStyle": "marquezy-editor",
+	"style": "marquezy",
+	"viewScript": "marquezy"
+}
