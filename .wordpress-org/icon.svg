@@ -10,6 +10,7 @@
     <symbol id="star" viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></symbol>
   </defs>
   <rect width="256" height="256" fill="url(#bg)"/>
+  <!-- plum ribbon (back) -->
   <g transform="rotate(16 128 128)" filter="url(#sh)">
     <rect x="-60" y="102" width="376" height="52" fill="#5B2A4E"/>
     <g fill="#FCE4EC">
@@ -21,6 +22,7 @@
       <use href="#star" x="238" y="119" width="18" height="18"/>
     </g>
   </g>
+  <!-- rose ribbon (front) -->
   <g transform="rotate(-16 128 128)" filter="url(#sh)">
     <rect x="-60" y="102" width="376" height="52" fill="#F06A8F"/>
     <g fill="#FFFFFF">
